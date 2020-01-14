@@ -10,6 +10,20 @@ namespace KD_Funkcijos_2
     {
         static void Main(string[] args)
         {
+            string vardas = "Andrius";
+            int kartai = 10;
+
+            IsvestiVarda(vardas, kartai);
+
+            Console.ReadLine();
+        }
+
+        static void IsvestiVarda(string vardas, int kartai)
+        {
+            for (int i = 0; i < kartai; i++)
+            {
+                Console.WriteLine(vardas);
+            }
         }
     }
 }
