@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KD_Funkcijos_2", "KD_Funkcijos_2\KD_Funkcijos_2.csproj", "{332C0D94-7F8F-4482-8613-3CF8C2DE0D5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{332C0D94-7F8F-4482-8613-3CF8C2DE0D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332C0D94-7F8F-4482-8613-3CF8C2DE0D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332C0D94-7F8F-4482-8613-3CF8C2DE0D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332C0D94-7F8F-4482-8613-3CF8C2DE0D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72C85739-4B00-466D-AA24-3456C4C74541}
+	EndGlobalSection
+EndGlobal
