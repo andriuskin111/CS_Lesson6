@@ -10,6 +10,23 @@ namespace KD_Funkcijos_2_2
     {
         static void Main(string[] args)
         {
+            int[] elementuMasyvas = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            IsvestiElementus(elementuMasyvas);
+
+            Console.ReadLine();
+        }
+
+        static void IsvestiElementus(int[] elementai)
+        {
+            int elementuSuma = 0;
+
+            for (int i = 0; i < elementai.Length; i++)
+            {
+                elementuSuma += elementai[i];
+            }
+
+            Console.WriteLine($"Elementu suma: {elementuSuma}\nElementu skaicius: {elementai.Length}");
         }
     }
 }
