@@ -16,48 +16,69 @@ namespace KD_Funkcijos_Tiketa
             int bilietoPasirinkimas;
             int bilietuKiekis;
 
-            Console.WriteLine("Pasirinkite bilieto tipa: [1] Po 10$, [2] Po 20$, [3] Po 30$");
-
-            while(!int.TryParse(Console.ReadLine(), out bilietoPasirinkimas))
-            {
-                Console.WriteLine("Ivesti neteisingi duomenys!");
-            }
-
-            if (bilietoPasirinkimas < 1 || bilietoPasirinkimas > 3)
-            {
-                Console.WriteLine("Neteisingai pasirinktas bilieto tipas");
-                Console.ReadLine();
-            }
-
-            Console.WriteLine("Iveskite bilietu kieki");
-
-            while (!int.TryParse(Console.ReadLine(), out bilietuKiekis))
-            {
-                Console.WriteLine("Ivesti neteisingi duomenys!");
-            }
-
             
-            if(bilietoPasirinkimas == 1)
+            while (true)
             {
-                ParduotiBilietus(ref bilietai10, bilietuKiekis);
+                Console.WriteLine($"Bilietu likutis:\nUz 10$: {bilietai10}\nUz 20$: {bilietai20}\nUz 30$: {bilietai30}");
+                Console.WriteLine("Pasirinkite bilieto tipa: [1] Po 10$, [2] Po 20$, [3] Po 30$, [4] Iseiti is programos");
+
+                while (!int.TryParse(Console.ReadLine(), out bilietoPasirinkimas))
+                {
+                    Console.WriteLine("Ivesti neteisingi duomenys!");
+                }
+
+                if(bilietoPasirinkimas < 1 || bilietoPasirinkimas > 4)
+                {
+                    Console.WriteLine("Ivestas neteisingas skaicius");
+                }
+                else if(bilietoPasirinkimas == 4)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Iveskite bilietu kieki");
+
+                    while (!int.TryParse(Console.ReadLine(), out bilietuKiekis))
+                    {
+                        Console.WriteLine("Ivesti neteisingi duomenys!");
+                    }
+
+                    if (bilietoPasirinkimas == 1)
+                    {
+                        ParduotiBilietus(ref bilietai10, bilietuKiekis, bilietoPasirinkimas);
+                    }
+                    else if (bilietoPasirinkimas == 2)
+                    {
+                        ParduotiBilietus(ref bilietai20, bilietuKiekis, bilietoPasirinkimas);
+                    }
+                    else
+                    {
+                        ParduotiBilietus(ref bilietai30, bilietuKiekis, bilietoPasirinkimas);
+                    }
+                }
+
             }
-            else if (bilietoPasirinkimas == 2)
+            
+        }
+
+        static void ParduotiBilietus(ref int bilietai, int bilietuKiekis, int bilietoTipas)
+        {
+            string tipas;
+            if(bilietoTipas == 1)
             {
-                ParduotiBilietus(ref bilietai20, bilietuKiekis);
+                tipas = "uz 10$";
+            }
+            else if (bilietoTipas == 2)
+            {
+                tipas = "uz 20$";
             }
             else
             {
-                ParduotiBilietus(ref bilietai30, bilietuKiekis);
+                tipas = "uz 30$";
             }
 
-
-
-            Console.ReadLine();
-        }
-
-        static void ParduotiBilietus(ref int bilietai, int bilietuKiekis)
-        {
-            if(bilietai == 0)
+            if (bilietai == 0)
             {
                 Console.WriteLine("Bilietu nera");
             }
@@ -67,9 +88,11 @@ namespace KD_Funkcijos_Tiketa
             }
             else
             {
+
+
                 bilietai -= bilietuKiekis;
 
-                Console.WriteLine($"Parduota bilietu: {bilietuKiekis}, Liko: {bilietai}");
+                Console.WriteLine($"Parduota bilietu {tipas}: {bilietuKiekis}, Liko: {bilietai}");
             }
         }
 
