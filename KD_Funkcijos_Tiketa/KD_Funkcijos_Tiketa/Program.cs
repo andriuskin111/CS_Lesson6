@@ -13,6 +13,7 @@ namespace KD_Funkcijos_Tiketa
             int bilietai10 = 100;
             int bilietai20 = 100;
             int bilietai30 = 100;
+            int veiksmoPasirinkimas;
             int bilietoPasirinkimas;
             int bilietuKiekis;
 
@@ -20,46 +21,118 @@ namespace KD_Funkcijos_Tiketa
             while (true)
             {
                 Console.WriteLine($"Bilietu likutis:\nUz 10$: {bilietai10}\nUz 20$: {bilietai20}\nUz 30$: {bilietai30}");
-                Console.WriteLine("Pasirinkite bilieto tipa: [1] Po 10$, [2] Po 20$, [3] Po 30$, [4] Iseiti is programos");
-
-                while (!int.TryParse(Console.ReadLine(), out bilietoPasirinkimas))
+                Console.WriteLine("Pasirinkite veiksma: [1] Prideti bilietus, [2] Parduoti bilietus,[3] Iseiti is programos");
+                while (!int.TryParse(Console.ReadLine(), out veiksmoPasirinkimas))
                 {
                     Console.WriteLine("Ivesti neteisingi duomenys!");
                 }
 
-                if(bilietoPasirinkimas < 1 || bilietoPasirinkimas > 4)
+                if (veiksmoPasirinkimas < 1 || veiksmoPasirinkimas > 3)
                 {
                     Console.WriteLine("Ivestas neteisingas skaicius");
                 }
-                else if(bilietoPasirinkimas == 4)
+                else if (veiksmoPasirinkimas == 3)
                 {
                     Environment.Exit(0);
                 }
-                else
+                else if(veiksmoPasirinkimas == 1)
                 {
-                    Console.WriteLine("Iveskite bilietu kieki");
+                    Console.WriteLine("Pasirinkite bilieto tipa: [1] Po 10$, [2] Po 20$, [3] Po 30$");
 
-                    while (!int.TryParse(Console.ReadLine(), out bilietuKiekis))
+                    while (!int.TryParse(Console.ReadLine(), out bilietoPasirinkimas))
                     {
                         Console.WriteLine("Ivesti neteisingi duomenys!");
                     }
 
-                    if (bilietoPasirinkimas == 1)
+                    if (bilietoPasirinkimas < 1 || bilietoPasirinkimas > 3)
                     {
-                        ParduotiBilietus(ref bilietai10, bilietuKiekis, bilietoPasirinkimas);
-                    }
-                    else if (bilietoPasirinkimas == 2)
-                    {
-                        ParduotiBilietus(ref bilietai20, bilietuKiekis, bilietoPasirinkimas);
+                        Console.WriteLine("Ivestas neteisingas skaicius");
                     }
                     else
                     {
-                        ParduotiBilietus(ref bilietai30, bilietuKiekis, bilietoPasirinkimas);
+                        Console.WriteLine("Iveskite bilietu kieki");
+
+                        while (!int.TryParse(Console.ReadLine(), out bilietuKiekis))
+                        {
+                            Console.WriteLine("Ivesti neteisingi duomenys!");
+                        }
+
+                        if (bilietoPasirinkimas == 1)
+                        {
+                            PridetiBilietus(ref bilietai10, bilietuKiekis, bilietoPasirinkimas);
+                        }
+                        else if (bilietoPasirinkimas == 2)
+                        {
+                            PridetiBilietus(ref bilietai20, bilietuKiekis, bilietoPasirinkimas);
+                        }
+                        else
+                        {
+                            PridetiBilietus(ref bilietai30, bilietuKiekis, bilietoPasirinkimas);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Pasirinkite bilieto tipa: [1] Po 10$, [2] Po 20$, [3] Po 30$");
+
+                    while (!int.TryParse(Console.ReadLine(), out bilietoPasirinkimas))
+                    {
+                        Console.WriteLine("Ivesti neteisingi duomenys!");
+                    }
+
+                    if (bilietoPasirinkimas < 1 || bilietoPasirinkimas > 3)
+                    {
+                        Console.WriteLine("Ivestas neteisingas skaicius");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Iveskite bilietu kieki");
+
+                        while (!int.TryParse(Console.ReadLine(), out bilietuKiekis))
+                        {
+                            Console.WriteLine("Ivesti neteisingi duomenys!");
+                        }
+
+                        if (bilietoPasirinkimas == 1)
+                        {
+                            ParduotiBilietus(ref bilietai10, bilietuKiekis, bilietoPasirinkimas);
+                        }
+                        else if (bilietoPasirinkimas == 2)
+                        {
+                            ParduotiBilietus(ref bilietai20, bilietuKiekis, bilietoPasirinkimas);
+                        }
+                        else
+                        {
+                            ParduotiBilietus(ref bilietai30, bilietuKiekis, bilietoPasirinkimas);
+                        }
                     }
                 }
 
+                
+
             }
             
+        }
+
+        static void PridetiBilietus(ref int bilietai, int bilietuKiekis, int bilietoTipas)
+        {
+            string tipas;
+            if (bilietoTipas == 1)
+            {
+                tipas = "uz 10$";
+            }
+            else if (bilietoTipas == 2)
+            {
+                tipas = "uz 20$";
+            }
+            else
+            {
+                tipas = "uz 30$";
+            }
+
+                bilietai += bilietuKiekis;
+
+                Console.WriteLine($"Prideta bilietu {tipas}: {bilietuKiekis}, Likutis: {bilietai}");          
         }
 
         static void ParduotiBilietus(ref int bilietai, int bilietuKiekis, int bilietoTipas)
