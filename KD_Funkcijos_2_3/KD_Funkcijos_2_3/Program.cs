@@ -10,6 +10,19 @@ namespace KD_Funkcijos_2_3
     {
         static void Main(string[] args)
         {
+            double skaicius = 10;
+            int laipsnis = 3;
+
+            Console.WriteLine($"Skaiciaus {skaicius} pakeltas {laipsnis}-iuoju laipsniu lygus {pakeltiSkaiciuLaipsniu(skaicius, laipsnis)}");
+
+            Console.ReadLine();
+        }
+
+        static double pakeltiSkaiciuLaipsniu(double skaicius, int laipsnis)
+        {
+            double pakeltasSkaiciusLaipsniu = Math.Pow(skaicius, laipsnis);
+            return pakeltasSkaiciusLaipsniu;
         }
     }
+
 }
