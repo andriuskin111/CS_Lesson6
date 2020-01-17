@@ -10,6 +10,25 @@ namespace KD_Advanced_2
     {
         static void Main(string[] args)
         {
+            int maksimalusRezultatuSkaicius = 20;
+
+            ParodytiFibonacioSkaiciu(maksimalusRezultatuSkaicius);
+
+            Console.ReadLine();
+        }
+
+        static void ParodytiFibonacioSkaiciu(int aMaksimalusRezultatuSkaicius)
+        {
+            int pirmasSkaicius = 0;
+            int antrasSkaicius = 1;
+
+            for (int i = 0; i <= aMaksimalusRezultatuSkaicius; i++ )
+            {
+                int temp = pirmasSkaicius;
+                pirmasSkaicius = antrasSkaicius;
+                antrasSkaicius += temp;
+                Console.Write($"{pirmasSkaicius}, ");
+            }
         }
     }
 }
