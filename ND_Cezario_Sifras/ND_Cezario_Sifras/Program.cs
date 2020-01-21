@@ -13,19 +13,46 @@ namespace ND_Cezario_Sifras
             string sakinys = "Kosmonautas isskrido i menuli";
             string uzsifruotasSakinys = "";
             string desifruotasSakinys = "";
-            string slaptazodis = "4";
+            string pinKodas = "1234";
+            string[] slaptazodis = new string[pinKodas.Length];
+            int count = 0;
+            int pinCount = 0;
 
-            for (int i = 0; i < sakinys.Length - 1; i++)
+            foreach (var item in pinKodas)
             {
+                slaptazodis[pinCount] = item.ToString();
+                pinCount++;
+            }
+
+            for (int i = 0; i < sakinys.Length; i++)
+            {
+                if(count < (slaptazodis.Length - 1))
+                {
+                    count++;
+                }
+                else
+                {
+                    count = 0;
+                }
                 int simbolis = (int)sakinys[i];
-                simbolis += int.Parse(slaptazodis);
+                simbolis += int.Parse(slaptazodis[count]); ;
                 uzsifruotasSakinys += (char)simbolis;
             }
 
-            for (int i = 0; i < sakinys.Length - 1; i++)
+            count = 0;
+
+            for (int i = 0; i < sakinys.Length; i++)
             {
+                if (count < (slaptazodis.Length - 1))
+                {
+                    count++;
+                }
+                else
+                {
+                    count = 0;
+                }
                 int simbolis = (int)uzsifruotasSakinys[i];
-                simbolis -= int.Parse(slaptazodis);
+                simbolis -= int.Parse(slaptazodis[count]);
                 desifruotasSakinys += (char)simbolis;
             }
 
